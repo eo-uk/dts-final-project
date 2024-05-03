@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Express App</title>
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    * {
+      margin: 0;
+    }
+    body {
+      padding: 1em;
+    }
+
+    h1 {
+      font-family: sans-serif;
+      text-align: center;
+      margin: 0.5em 0 1em 0;
+      padding-bottom: 0.5em;
+      border-bottom: 1px solid #d8d8d8;
+    }
+    form .form-item {
+      display: block;
+      margin: 1em 0;
+    }
+    .link {
+        display: block;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Web Components Library Express Example</h1>
+  
+  <form>
+    <c-text-input id="name-input" class="form-item"></c-text-input>
+    <script>
+      // Name Input Props
+      let name = '';
+      const nameInputEl = document.getElementById('name-input');
+      nameInputEl.value = name;
+      nameInputEl.setValue = (newValue) => {
+        name = newValue;
+      }
+      nameInputEl.name = 'name';
+      nameInputEl.placeholder = 'Your Name';
+    </script>
+
+    <c-text-input id="email-input" class="form-item"></c-text-input>
+    <script>
+      // Email Input Props
+      let email = '';
+      const emailInputEl = document.getElementById('email-input');
+      emailInputEl.value = email;
+      emailInputEl.setValue = (newValue) => {
+        email = newValue;
+      }
+      emailInputEl.name = 'email';
+      emailInputEl.placeholder = 'Your Email';
+    </script>
+
+    <c-select-input id="subject-input" class="form-item"></c-select-input>
+    <script>
+      // Subject Input Props
+      let subject = '';
+      const subjectInputEl = document.getElementById('subject-input');
+      subjectInputEl.value = subject;
+      subjectInputEl.setValue = (newValue) => {
+        subject = newValue;
+      }
+      subjectInputEl.name = 'subject';
+      subjectInputEl.placeholder = 'Select Subject';
+      subjectInputEl.options = [
+        {text: 'Option One', value: 'option-one'},
+        {text: 'Option Two', value: 'option-two'},
+      ]
+    </script>
+
+    <c-text-area id="message-input" class="form-item"></c-text-area>
+    <script>
+      // Message Input Props
+      let message = '';
+      const messageInputEl = document.getElementById('message-input');
+      messageInputEl.value = message;
+      messageInputEl.setValue = (newValue) => {
+        message = newValue;
+      }
+      messageInputEl.name = 'message';
+      messageInputEl.placeholder = 'Your Message';
+      messageInputEl.rows = 10;
+    </script>
+
+    <c-button id="submit-button" class="form-item"></c-button>
+    <script>
+      // Submit Button Props
+      const submitButtonEl = document.getElementById('submit-button');
+      submitButtonEl.text = 'Submit';
+      submitButtonEl.extraStyle = `
+        button {
+          color: white;
+          background-color: salmon;
+          width: 100%;
+        }
+        button:hover {
+          color: black;
+          background-color: pink;
+        }
+      `;
+      submitButtonEl.addEventListener('click', () => {alert(`
+        Submit clicked!
+          - Name: ${name}
+          - Email: ${email}
+          - Subject: ${subject}
+          - Message: ${message}
+      `)});
+    </script>
+  </form>
+
+  <a class="link" href="/control">View Control Page</a>
+
+  <script type='module' src="/bundle.js"></script>
+</body>
+</html>

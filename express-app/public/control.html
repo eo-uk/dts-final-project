@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Express App</title>
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    * {
+      margin: 0;
+    }
+    body {
+      padding: 1em;
+    }
+
+    h1 {
+      font-family: sans-serif;
+      text-align: center;
+      margin: 0.5em 0 1em 0;
+      padding-bottom: 0.5em;
+      border-bottom: 1px solid #d8d8d8;
+    }
+    form .form-item {
+      display: block;
+      margin: 1em 0;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    input,
+    select,
+    textarea,
+    button {
+        width: 100%;
+        margin: 0.5em 0;
+        padding: 0.5em;
+    }
+
+    button {
+        color: white;
+        background-color: salmon;
+        width: 100%;
+    }
+    button:hover {
+        color: black;
+        background-color: pink;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5em;
+        padding-left: 0.3em;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+    }
+
+    .link {
+        display: block;
+        margin: 1em;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Express Example Control Page</h1>
+  
+  <form>
+
+    <label for="name-input">Your Name</label>
+    <input type="text" name="name" id="name-input" placeholder="Your Name">
+    <script>
+        let name = "";
+        document.getElementById('name-input').addEventListener('input', (event) => {
+            name = event.target.value;
+        });
+    </script>
+
+    <label for="email-input">Your Email</label>
+    <input type="text" name="email" id="email-input" placeholder="Your Email">
+    <script>
+        let email = "";
+        document.getElementById('email-input').addEventListener('input', (event) => {
+            email = event.target.value;
+        });
+    </script>
+
+    <label for="subject-input">Select Subject</label>
+    <select name="subject" id="subject-input">
+        <option value="">Select Subject</option>
+        <option value="option-one">Option One</option>
+        <option value="option-two">Option Two</option>
+    </select>
+    <script>
+        let subject = "";
+        document.getElementById('subject-input').addEventListener('change', (event) => {
+            subject = event.target.value;
+        });
+    </script>
+
+    <label for="message-input">Your Message</label>
+    <textarea name="message" id="message-input" rows="10" placeholder="Your Message"></textarea>
+    <script>
+        let message = "";
+        document.getElementById('message-input').addEventListener('input', (event) => {
+            message = event.target.value;
+        });
+    </script>
+
+    <button type="submit" id="submit-button">
+        Submit
+    </button>
+    <script>
+        document.getElementById('submit-button').addEventListener('click', (event) => {
+            event.preventDefault();
+            alert(`
+                Submit clicked!
+                - Name: ${name}
+                - Email: ${email}
+                - Subject: ${subject}
+                - Message: ${message}
+            `)
+        });
+    </script>
+  </form>
+
+  <a class="link" href="/">View Library Page</a>
+
+  <script type='module' src="/bundle.js"></script>
+</body>
+</html>

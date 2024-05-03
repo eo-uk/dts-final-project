@@ -1,0 +1,20 @@
+{
+  "name": "express-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx rollup -c rollup.config.js"
+  },
+  "author": "",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2",
+    "lit": "^3.1.1",
+    "rollup": "^4.9.6",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "web-components-lib": "file:../web-components"
+  }
+}
